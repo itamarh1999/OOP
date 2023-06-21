@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Player extends Unit {
+public abstract class Player extends Unit implements HeroicUnit {
     protected int level;
     protected int EXP;
 
@@ -86,6 +86,10 @@ public abstract class Player extends Unit {
     public void dead(BoardController controller){
         setCharacter('X');
         controller.playerDeath(this);
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public abstract String printPlayer();
