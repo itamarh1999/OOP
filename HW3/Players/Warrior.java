@@ -60,8 +60,8 @@ public class Warrior extends Player {
 
     @Override
     public String printPlayer() {
-        return String.format("Warrior - %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Cooldown: %d"
-                , getName(), getHP(),getMaxHP(),getAttack(), getDefence(),EXP,(50*level),remainCool);
+        return String.format("Warrior - %s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Cooldown: %d"
+                , getName(),getLevel(), getHP(),getMaxHP(),getAttack(), getDefence(),EXP,(50*level),remainCool);
     }
 
 }

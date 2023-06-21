@@ -48,7 +48,7 @@ public class Rogue extends Player {
 
     @Override
     public String printPlayer() {
-        return String.format("Rouge - %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Energy: %d"
-                , getName(), getHP(),getMaxHP(),getAttack(), getDefence(),EXP,(50*level),energy);
+        return String.format("Rouge - %s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Energy: %d"
+                , getName(),getLevel(), getHP(),getMaxHP(),getAttack(), getDefence(),EXP,(50*level),energy);
     }
 }
