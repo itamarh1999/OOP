@@ -59,7 +59,7 @@ public class Mage extends Player{
     }
     @Override
     public String printPlayer() {
-        return String.format("Mage - %s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tSpell Power: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Mana: %d"
+        return String.format("Mage -%s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tSpell Power: %d\t\tDefense: %d\t\tExperience: %d/%d\t\tMana: %d"
                 , getName(),getLevel(), getHP(),getMaxHP(),getAttack(),AP, getDefence(),EXP,(50*level),mana);
     }
 }

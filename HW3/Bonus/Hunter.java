@@ -42,6 +42,8 @@ public class Hunter extends Player{
                 int damage = enemy.getHittedWithDefence(AD);
                 messageCallback.send(name + " used special ability and hit " + enemy.getName() +
                         " and dealt " + damage + ". remaining hp: " + enemy.getHP());
+                if (!enemy.isAlive())
+                    gainEXP(enemy.getEXPvalue());
             }
             else
                 messageCallback.send("missed Arrow... " + enemy.getName() +  " is not in the range");
@@ -63,7 +65,7 @@ public class Hunter extends Player{
 
     @Override
     public String printPlayer() {
-        return String.format("Hunter - %s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\t Experience: %d/%d\t\t Arrows: %d"
+        return String.format("Hunter -%s\t\tLevel %s\t\tHealth: %s/%s\t\tAttack: %d\t\tDefense: %d\t\tExperience: %d/%d\t\tArrows: %d"
                 , getName(),getLevel(), getHP(),getMaxHP(),getAttack(), getDefence(),EXP,(50*level),arrows);
     }
 }
