@@ -32,7 +32,7 @@ public class BoardController {
         while (true) {
             try {
                 index = Integer.parseInt(cli.readLine()) - 1;
-                while (index < 0 | index > 5) {
+                while (index < 0 | index > players.size()) {
                     System.out.println("You chose purely...(insert number in the range 1-6)");
                     index = Integer.parseInt(cli.readLine()) - 1;
                 }

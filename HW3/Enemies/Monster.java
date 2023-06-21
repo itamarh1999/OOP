@@ -1,7 +1,5 @@
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
-import java.util.ArrayList;
+
 
 
 public class Monster extends Enemy{
@@ -13,7 +11,7 @@ public class Monster extends Enemy{
         this.visionRange = visionRange;
     }
 
-        private void chasePlayer(Player player,GameBoard board)
+        public void chasePlayer(Player player,GameBoard board)
         {
         int dx = this.position.getX() - player.position.getX();     //positive dx means player on the left
         int dy = this.position.getY() - player.position.getY();     //positive dy means player is down from me

@@ -15,8 +15,8 @@ public class Position {
     }
 
     public Double getRange(Tile t){
-        int distY = getX() - t.position.getX();
-        int distX = getY() - t.position.getY();
+        int distY = Math.abs( getX() - t.position.getX());
+        int distX = Math.abs(getY() - t.position.getY());
         return Math.sqrt((distY * distY) + (distX * distX));
     }
     public int getX() {
