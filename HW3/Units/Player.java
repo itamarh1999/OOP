@@ -12,13 +12,11 @@ public abstract class Player extends Unit {
     }
 
     public void levelUp(){
-        if (EXP >= level*50) {
-            EXP = EXP - level * 50;
-            level = level + 1;
-            health.levelUp(level);
-            AD = AD + (4 * level);
-            defence = defence + level;
-        }
+        EXP = EXP - level * 50;
+        level = level + 1;
+        health.levelUp(level);
+        AD = AD + (4 * level);
+        defence = defence + level;
     };
     public void move(String move, GameBoard board , List<Enemy> enemies){
         switch (move){
