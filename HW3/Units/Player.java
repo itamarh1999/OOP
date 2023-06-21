@@ -40,8 +40,6 @@ public abstract class Player extends Unit {
                 break;
             case"q"://Do Nothing
                 break;
-            default:
-                System.out.println("press arrow dude or lady");
         }
     }
 
@@ -80,6 +78,7 @@ public abstract class Player extends Unit {
             levelUp();
     }
     public void dead(BoardController controller){
+        setCharacter('X');
         controller.playerDeath(this);
     }
 

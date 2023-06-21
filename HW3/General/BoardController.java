@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class BoardController {
     private List<Tile> allTiles;
-
-
     private CLI cli;
     private TileFactory tileFactory;
     private List<List<String>> levels;
@@ -155,7 +153,6 @@ public class BoardController {
     }
 
     public void playerDeath(Player player) {
-        player.setCharacter('X');
         cli.displayMassage("GAME OVER");
         System.exit(0);
     }

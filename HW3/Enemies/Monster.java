@@ -13,39 +13,39 @@ public class Monster extends Enemy{
         this.visionRange = visionRange;
     }
 
-        private void chasePlayer(Player player,BoardController controller)
+        private void chasePlayer(Player player,GameBoard board)
         {
         int dx = this.position.getX() - player.position.getX();     //positive dx means player on the left
         int dy = this.position.getY() - player.position.getY();     //positive dy means player is down from me
         if (Math.abs(dx) > Math.abs(dy)) {
             if (dx > 0)
-                interact(controller.getBoard().get(position.getX()-1,position.getY()));
+                interact(board.get(position.getX()-1,position.getY()));
             else
-                interact(controller.getBoard().get(position.getX()+1,position.getY()));
+                interact(board.get(position.getX()+1,position.getY()));
         }
         else {
             if (dy > 0 )
-                interact(controller.getBoard().get(position.getX(),position.getY()-1));
+                interact(board.get(position.getX(),position.getY()-1));
             else
-                interact(controller.getBoard().get(position.getX(),position.getY()+1));
+                interact(board.get(position.getX(),position.getY()+1));
         }
     }
 
-    private void moveRandomly(BoardController controller) {
+    private void moveRandomly(GameBoard board) {
         Random random = new Random();
         int index = random.nextInt(5);
         switch (index) {
             case 0: //up
-                interact(controller.getBoard().get(position.getX() - 1, position.getY()));
+                interact(board.get(position.getX() - 1, position.getY()));
                 break;
             case 1: // down
-                interact(controller.getBoard().get(position.getX() + 1, position.getY()));
+                interact(board.get(position.getX() + 1, position.getY()));
                 break;
             case 2: // left
-                interact(controller.getBoard().get(position.getX(), position.getY() - 1));
+                interact(board.get(position.getX(), position.getY() - 1));
                 break;
             case 3: // right
-                interact(controller.getBoard().get(position.getX(), position.getY() + 1));
+                interact(board.get(position.getX(), position.getY() + 1));
                 break;
             case 4:
                 break;
@@ -55,8 +55,8 @@ public class Monster extends Enemy{
     @Override
     public void gameTick(BoardController controller) {
         if (getRange(controller.getPlayer()) < visionRange){
-            chasePlayer(controller.getPlayer(),controller);
+            chasePlayer(controller.getPlayer(),controller.getBoard());
         }
         else
-            moveRandomly(controller);
+            moveRandomly(controller.getBoard());
     }}

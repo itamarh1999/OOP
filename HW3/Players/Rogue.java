@@ -41,7 +41,14 @@ public class Rogue extends Player {
         }
     }
     public void gameTick(InputReader inputReader, BoardController controller) {
-        this.move(inputReader.read(), controller);
+        String order = inputReader.read();
+        while (!order.equals("a") && !order.equals("s") && !order.equals("d")
+                && !order.equals("w") && !order.equals("e") && !order.equals("q")) {
+            messageCallback.send("illegal command please use w,a,s,d to move , " +
+                    "e for special ability or q to stay in place");
+            order = inputReader.read();
+        }
+        this.move(order,controller);
         energy = Math.min(energy + 10, maxEnergy);
 
     }
