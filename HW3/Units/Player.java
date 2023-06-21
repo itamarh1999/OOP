@@ -20,23 +20,22 @@ public abstract class Player extends Unit {
             defence = defence + level;
         }
     };
-    public void move(String move, BoardController controller){
-        List<Tile> allTiles = controller.getAllTiles();
+    public void move(String move, GameBoard board , List<Enemy> enemies){
         switch (move){
             case "w"://Move UP
-                interact(controller.getBoard().get(position.getX()-1,position.getY()));
+                interact(board.get(position.getX()-1,position.getY()));
                 break;
             case "s"://Move Down
-                interact(controller.getBoard().get(position.getX()+1,position.getY()));
+                interact(board.get(position.getX()+1,position.getY()));
                 break;
             case "a"://Move Left
-                interact(controller.getBoard().get(position.getX(),position.getY()-1));
+                interact(board.get(position.getX(),position.getY()-1));
                 break;
             case "d"://Move Right
-                interact(controller.getBoard().get(position.getX(),position.getY()+1));
+                interact(board.get(position.getX(),position.getY()+1));
                 break;
             case "e"://Cast Special Ability
-                castAbility(controller.getEnemies());
+                castAbility(enemies);
                 break;
             case"q"://Do Nothing
                 break;
@@ -45,7 +44,16 @@ public abstract class Player extends Unit {
 
 
     public abstract void castAbility(List<Enemy> e);
-    public abstract void gameTick(InputReader inputReader,BoardController controller);
+    public void gameTick(InputReader inputReader,BoardController controller){
+        String order = inputReader.read();
+        while (!order.equals("a") && !order.equals("s") && !order.equals("d")
+                && !order.equals("w") && !order.equals("e") && !order.equals("q")) {
+            messageCallback.send("illegal command please use w,a,s,d to move , " +
+                    "e for special ability or q to stay in place");
+            order = inputReader.read();
+        }
+        move(order,controller.getBoard(),controller.getEnemies());
+    }
 
     public void visit(Enemy e) {
         int damage = e.getHittedWithDefence(AD);

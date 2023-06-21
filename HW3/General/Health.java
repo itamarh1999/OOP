@@ -20,7 +20,7 @@ public class Health {
     }
 
     public void levelUp(int level){
-        maxHP = maxHP + 10 * level;
+        maxHP = maxHP + (10 * level);
         HP = maxHP;
     }
 

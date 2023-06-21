@@ -14,8 +14,6 @@ public class BoardController {
     private GameBoard gameBoard;
     private List<Enemy> enemies;
 
-    private DeathCallBack deathCallBackd;
-
     public BoardController(String path) {
         cli = new CLI(this);
         tileFactory = new TileFactory();
@@ -149,7 +147,7 @@ public class BoardController {
     }
 
     public void enemyDeath(Enemy enemy) {
-        gameBoard.remove(enemy); // also adds a empty tile instead of it.
+        gameBoard.remove(enemy); // also adds an empty tile instead of it.
     }
 
     public void playerDeath(Player player) {
