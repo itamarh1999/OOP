@@ -4,6 +4,11 @@ The player navigates through various levels, fighting different types of enemies
 
 , avoiding traps, and overcoming obstacles. Each level is loaded from an indexed file that defines the layout and contents of the board.
 
+### Building the Project
+-install the project into your computer
+- Open a terminal and navigate to the 
+- use  and here you go
+
 # Game Board
 
 The game board is a 2-dimensional array of characters, each representing different elements:
