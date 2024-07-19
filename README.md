@@ -6,8 +6,8 @@ The player navigates through various levels, fighting different types of enemies
 
 ### Building the Project
 -install the project into your computer
-- Open a terminal and navigate to the 
-- use  and here you go
+- Open a terminal and navigate to the out/artifacts/HW_3_DND_jar directory
+- use "java -jar" {tab} and here you go
 
 # Game Board
 
